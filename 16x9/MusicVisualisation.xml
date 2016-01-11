@@ -10,7 +10,7 @@
 
 		<!-- Visualisation -->
 		<control type="visualisation" id="2">
-			<visible>Player.HasAudio</visible>
+			<visible>Player.HasAudio + [!Skin.HasSetting(ArtistslideShow) | [System.HasAddon(script.artistslideshow) + Skin.HasSetting(VisualisationShow)]]</visible>
 		</control>
 
 		<!-- Artist slideshow -->
@@ -20,8 +20,10 @@
 			<timeperimage>10000</timeperimage>
 			<fadetime>2000</fadetime>
 			<randomize>true</randomize>
-			<visible>Player.HasAudio + System.HasAddon(script.artistslideshow)</visible>
+			<visible>Player.HasAudio + System.HasAddon(script.artistslideshow) + Skin.HasSetting(ArtistslideShow)</visible>
+			<animation effect="fade" start="100" end="50" time="0" condition="Skin.HasSetting(VisualisationShow)">Conditional</animation>
 		</control>
+
 
 	</controls>
 

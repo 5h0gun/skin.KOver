@@ -23,14 +23,14 @@
 					[SubString(Window(Home).Property(DialogVisibility4)YesNo) + SubString(Window(Home).Property(DialogVisibility4),$NUMBER[4]) + IsEmpty(Window(Home).Property(DialogVisibility5))] |
 					[SubString(Window(Home).Property(DialogVisibility5),YesNo)  + SubString(Window(Home).Property(DialogVisibility5),$NUMBER[5])] + !IsEmpty(Skin.String(KOverInit))</visible>
 					
-			<include condition="!Window.Previous(startup)" name="DialogPOS">
+			<include condition="!IsEmpty(Skin.String(KOverInit))" name="DialogPOS">
 				<param name="DialogName" value="DiaYesNo" />
 			</include>							
 
 		</control>
 		
 		<control type="group">
-			<visible>Window.Previous(startup)</visible>
+			<visible>IsEmpty(Skin.String(KOverInit))</visible>
 			
 			<!-- Background -->
 			<control type="image">
@@ -71,7 +71,7 @@
 				<aligny>center</aligny>
 				<font>Font60R</font>
 				<textcolor>$VAR[InitColor4]</textcolor>
-				<label>Over</label>
+				<label>31144</label>
 				<animation effect="rotate" start="0" end="45" time="0" center="560,500" condition="true">Conditional</animation>
 			</control>			
 
@@ -87,7 +87,7 @@
 				<animation effect="fade" start="0" end="100" time="200" condition="true">Conditional</animation>			
 			</control>			
 
-			<control type="label" id="9">
+			<control type="textbox" id="9">
 				<left>860</left>
 				<top>432</top>
 				<width>499</width>
@@ -96,7 +96,6 @@
 				<aligny>center</aligny>
 				<font>Font27</font>
 				<textcolor>$VAR[InitColor2]</textcolor>
-				<label>20186</label>
 				<animation effect="fade" start="0" end="100" time="200" condition="true">Conditional</animation>			
 			</control>					
 
@@ -107,7 +106,7 @@
 				<width>588</width>
 				<height>70</height>
 				<itemgap>1</itemgap>
-				<align>center</align>
+				<align>left</align>
 				<orientation>horizontal</orientation>
 
 				<!-- YES -->

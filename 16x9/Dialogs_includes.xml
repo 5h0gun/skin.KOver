@@ -956,7 +956,7 @@
 							<height>60</height>
 							<align>center</align>
 							<texture colordiffuse="$VAR[CategoryColor3]">common/white.png</texture>
-							<visible>!Control.HasFocus(9000)</visible>
+							<visible>!Control.HasFocus(420)</visible>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -1035,7 +1035,7 @@
 							<height>60</height>
 							<align>center</align>
 							<texture colordiffuse="$VAR[CategoryColor3]">common/white.png</texture>
-							<visible>!Control.HasFocus(9000)</visible>
+							<visible>!Control.HasFocus(420)</visible>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -1105,7 +1105,7 @@
 				</control>
 
 				<!-- Button grouplist -->
-				<control type="grouplist" id="9000">
+				<control type="grouplist" id="420">
 					<right>24</right>
 					<top>284</top>
 					<width>588</width>
@@ -1158,16 +1158,7 @@
 					<width>588</width>							
 					<texture  colordiffuse="FFFFFFFF">$INFO[ListItem.Icon]</texture>
 					<aspectratio aligny="center">keep</aspectratio>
-					<visible>!SubString(ListItem.Icon,Default) + !SubString(Control.GetLabel(416),*)</visible>
-				</control>
-				<control type="image">
-					<top>24</top>
-					<left>24</left>
-					<height>308</height>
-					<width>588</width>	
-					<texture colordiffuse="$INFO[Skin.String(Color.DIATxtNF)]">$INFO[ListItem.Icon]</texture>
-					<aspectratio aligny="center">keep</aspectratio>
-					<visible>!SubString(ListItem.Icon,Default) + SubString(Control.GetLabel(416),*)</visible>
+					<visible>!SubString(ListItem.Icon,Default)</visible>
 				</control>
 				<control type="image">
 					<top>24</top>
@@ -1194,7 +1185,7 @@
 					<top>24</top>
 					<onup>noop</onup>
 					<ondown>noop</ondown>
-					<onright>9000</onright>
+					<onright>420</onright>
 					<height>305</height>
 					<scrolltime>200</scrolltime>
 					<orientation>vertical</orientation>
@@ -1230,7 +1221,7 @@
 							<height>60</height>
 							<align>center</align>
 							<texture colordiffuse="$VAR[CategoryColor3]">common/white.png</texture>
-							<visible>!Control.HasFocus(9000)</visible>
+							<visible>!Control.HasFocus(420)</visible>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -1274,7 +1265,7 @@
 					<top>24</top>
 					<onup>noop</onup>
 					<ondown>noop</ondown>
-					<onright>9000</onright>
+					<onright>420</onright>
 					<height>305</height>
 					<scrolltime>200</scrolltime>
 					<orientation>vertical</orientation>
@@ -1310,7 +1301,7 @@
 							<height>60</height>
 							<align>center</align>
 							<texture colordiffuse="$VAR[CategoryColor3]">common/white.png</texture>
-							<visible>!Control.HasFocus(9000)</visible>
+							<visible>!Control.HasFocus(420)</visible>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -1381,7 +1372,7 @@
 				</control>
 
 				<!-- Button grouplist -->
-				<control type="grouplist" id="9000">
+				<control type="grouplist" id="420">
 					<right>24</right>
 					<top>267</top>
 					<width>588</width>
@@ -1845,198 +1836,6 @@
 						<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
 						<focusedcolor>$INFO[Skin.String(Color.DIATxtF)]</focusedcolor>
 					</control>		
-				</control>
-			</control>
-		</control>
-	</include>
-	
-	<include name="DiaPvrGuideInfo">
-	
-		<control type="group">
-		<animation effect="fade" start="0" end="100" time="100" delay="100">WindowOpen</animation>
-		<animation effect="fade" start="100" end="0" time="100" delay="100">WindowClose</animation>
-	
-			<!-- Bloc 1 -->
-			<control type="group">
-				<left>$PARAM[DIAB1PosX]</left>
-				<top>$PARAM[DIAB1PosY]</top>
-				<height>356</height>
-				<width>636</width>
-				
-				<!-- Heading -->
-				<control type="label">
-					<top>0</top>
-					<left>24</left>
-					<width>588</width>
-					<height>70</height>
-					<align>left</align>
-					<font>Font48</font>
-					<textcolor>$INFO[Skin.String(Color.DIATitle)]</textcolor>
-					<label>19047</label>
-				</control>
-	
-			</control>
-			
-			<!-- Bloc 2 -->
-			<control type="group">
-				<visible>!Window.IsVisible(10106)</visible>
-				<left>$PARAM[DIAB2PosX]</left>
-				<top>$PARAM[DIAB2PosY]</top>
-				<height>356</height>
-				<width>636</width>
-				
-				<control type="image">
-					<left>26</left>
-					<posy>8</posy>
-					<height>80</height>
-					<width>80</width>
-					<texture colordiffuse="$INFO[Skin.String(Color.DIATitle)]">material/info2.png</texture>
-				</control>						
-				
-				<control type="label">
-					<left>148</left>
-					<height>96</height>
-					<textcolor>$INFO[Skin.String(Color.DIATitle)]</textcolor>
-					<font>Font36B</font>
-					<align>left</align>
-					<label>$INFO[ListItem.Title]</label>
-				</control>
-			
-				<control type="image">
-					<left>0</left>
-					<posy>96</posy>
-					<height>1</height>
-					<texture colordiffuse="$INFO[Skin.String(Color.DIATxtNF)]" border="24,0,24,0">common/white.png</texture>
-					<bordertexture colordiffuse="00FFFFFF" border="24,0,24,0">common/white.png</bordertexture>
-					<bordersize>24,0,24,0</bordersize>
-					<animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
-				</control>		
-			
-				<!-- Details -->
-				<control type="grouplist" id="99">
-					<left>24</left>
-					<top>120</top>
-					<width>636</width>
-					<height>165</height>
-					<itemgap>1</itemgap>
-					<onleft>noop</onleft>
-					<onright>7</onright>
-					<onup>noop</onup>
-					<ondown>noop</ondown>
-					<orientation>vertical</orientation>
-					<usecontrolcoords>true</usecontrolcoords>
-
-					<!-- Time description -->
-					<include name="DiaInfoButton2">
-						<param name="Id" value="51" />
-						<param name="Localize" value="142" />
-						<param name="Label" value="[B]$LOCALIZE[142][/]$INFO[ListItem.StartTime, ,] - $INFO[ListItem.EndTime] ($INFO[ListItem.StartDate])" />
-						<param name="OnLeft" value="noop" />
-						<param name="OnRight" value="7" />
-						<param name="OnUp" value="noop" />
-						<param name="OnDown" value="noop" />
-					</include>
-
-					<!-- Duration -->
-					<include name="DiaInfoButton">
-						<param name="Id" value="52" />
-						<param name="Localize" value="180" />
-						<param name="Label" value="ListItem.Duration" />
-						<param name="OnLeft" value="noop" />
-						<param name="OnRight" value="7" />
-						<param name="OnUp" value="51" />
-						<param name="OnDown" value="53" />
-					</include>
-
-					<!-- Channel Name -->
-					<include name="DiaInfoButton">
-						<param name="Id" value="53" />
-						<param name="Localize" value="19148" />
-						<param name="Label" value="ListItem.ChannelName" />
-						<param name="OnLeft" value="noop" />
-						<param name="OnRight" value="7" />
-						<param name="OnUp" value="52" />
-						<param name="OnDown" value="54" />
-					</include>
-
-					<!-- Genre -->
-					<include name="DiaInfoButton">
-						<param name="Id" value="54" />
-						<param name="Localize" value="135" />
-						<param name="Label" value="ListItem.Genre" />
-						<param name="OnLeft" value="noop" />
-						<param name="OnRight" value="7" />
-						<param name="OnUp" value="53" />
-						<param name="OnDown" value="noop" />
-					</include>
-				</control>
-			</control>
-			
-			<!-- Bloc 3 -->
-			<control type="group">
-				<left>$PARAM[DIAB3PosX]</left>
-				<top>$PARAM[DIAB3PosY]</top>
-				<height>356</height>
-				<width>636</width>
-				
-				<!-- Button grouplist -->
-				<control type="grouplist" id="9000">
-					<right>24</right>
-					<top>284</top>
-					<width>588</width>
-					<height>60</height>
-					<itemgap>1</itemgap>
-					<align>right</align>
-					<onleft>51</onleft>
-					<onright>noop</onright>
-					<onup>51</onup>
-					<ondown>noop</ondown>
-					<orientation>horizontal</orientation>
-
-					<!-- OK Button -->
-					<control type="button" id="7">
-						<width>auto</width>
-						<height>60</height>
-						<label>186</label>
-						<font>Font27</font>
-						<align>center</align>
-						<texturefocus colordiffuse="$VAR[CategoryColor3]">common/white.png</texturefocus>
-						<texturenofocus colordiffuse="00FFFFFF">common/white.png</texturenofocus>
-						<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
-						<focusedcolor>$INFO[Skin.String(Color.DIATxtF)]</focusedcolor>
-						<disabledcolor>$INFO[Skin.String(Color.DIAInvalid)]</disabledcolor>
-						<invalidcolor>$INFO[Skin.String(Color.DIAInvalid)]</invalidcolor>
-					</control>
-
-					<!-- Switch to Channel -->
-					<control type="button" id="5">
-						<width>auto</width>
-						<height>60</height>
-						<label>19165</label>
-						<font>Font27</font>
-						<align>center</align>
-						<texturefocus colordiffuse="$VAR[CategoryColor3]">common/white.png</texturefocus>
-						<texturenofocus colordiffuse="00FFFFFF">common/white.png</texturenofocus>
-						<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
-						<focusedcolor>$INFO[Skin.String(Color.DIATxtF)]</focusedcolor>
-						<disabledcolor>$INFO[Skin.String(Color.DIAInvalid)]</disabledcolor>
-						<invalidcolor>$INFO[Skin.String(Color.DIAInvalid)]</invalidcolor>
-					</control>
-
-					<!-- Record -->
-					<control type="button" id="6">
-						<width>auto</width>
-						<height>60</height>
-						<label>270</label>
-						<font>Font27</font>
-						<align>center</align>
-						<texturefocus colordiffuse="$VAR[CategoryColor3]">common/white.png</texturefocus>
-						<texturenofocus colordiffuse="00FFFFFF">common/white.png</texturenofocus>
-						<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
-						<focusedcolor>$INFO[Skin.String(Color.DIATxtF)]</focusedcolor>
-						<disabledcolor>$INFO[Skin.String(Color.DIAInvalid)]</disabledcolor>
-						<invalidcolor>$INFO[Skin.String(Color.DIAInvalid)]</invalidcolor>
-					</control>
 				</control>
 			</control>
 		</control>
@@ -3327,158 +3126,6 @@
 			</focusedlayout>
 		</control>				
 	</include>	
-
-	<include name="DiaPeripheralManager">
-	
-		<control type="group">
-		<animation effect="fade" start="0" end="100" time="100" delay="100">WindowOpen</animation>
-		<animation effect="fade" start="100" end="0" time="100" delay="100">WindowClose</animation>
-	
-			<!-- Bloc 1 -->
-			<control type="group">
-				<left>$PARAM[DIAB1PosX]</left>
-				<top>$PARAM[DIAB1PosY]</top>
-				<height>356</height>
-				<width>636</width>
-
-				<!-- Image -->
-				<control type="image">
-					<top>24</top>
-					<left>24</left>
-					<height>308</height>
-					<width>588</width>							
-					<texture  colordiffuse="$INFO[Skin.String(Color.DIATxtNF)]">material/remote.png</texture>
-					<aspectratio aligny="center">keep</aspectratio>
-				</control>				
-				
-			</control>
-			
-			<!-- Bloc 2 -->
-			<control type="group">
-				<visible>!Window.IsVisible(10106)</visible>
-				<left>$PARAM[DIAB2PosX]</left>
-				<top>$PARAM[DIAB2PosY]</top>
-				<height>356</height>
-				<width>636</width>
-
-				<!-- Main list -->
-				<control type="list" id="20">
-					<left>24</left>
-					<top>24</top>
-					<onup>noop</onup>
-					<ondown>noop</ondown>
-					<onright>9000</onright>
-					<onleft>noop</onleft>
-					<height>305</height>
-					<scrolltime>200</scrolltime>
-					<orientation>vertical</orientation>
-
-					<itemlayout width="588" height="61">
-						<control type="label">
-							<top>0</top>
-							<left>12</left>
-							<width>496</width>
-							<height>60</height>
-							<align>left</align>
-							<font>Font27</font>
-							<scroll>True</scroll>
-							<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
-							<label>$INFO[ListItem.Property(Product)]</label>
-						</control>
-					</itemlayout>
-					
-					<focusedlayout width="588" height="61">
-						<control type="image">
-							<left>0</left>
-							<top>0</top>
-							<width>588</width>
-							<height>60</height>
-							<align>center</align>
-							<texture colordiffuse="$VAR[CategoryColor3]">common/white.png</texture>
-							<animation effect="fade" start="100" end="75" time="100" condition="!Control.HasFocus(20)">Conditional</animation>
-						</control>
-						<control type="label">
-							<top>0</top>
-							<left>12</left>
-							<width>496</width>
-							<height>60</height>
-							<align>left</align>
-							<font>Font27</font>
-							<scroll>True</scroll>
-							<textcolor>$INFO[Skin.String(Color.DIATxtF)]</textcolor>
-							<label>$INFO[ListItem.Property(Product)]</label>
-						</control>
-					</focusedlayout>		
-				</control>								
-				
-			</control>
-			
-			<!-- Bloc 3 -->
-			<control type="group">
-				<left>$PARAM[DIAB3PosX]</left>
-				<top>$PARAM[DIAB3PosY]</top>
-				<height>356</height>
-				<width>636</width>
-
-				<!-- Heading -->
-				<control type="label" id="1">
-					<top>24</top>
-					<left>24</left>
-					<width>588</width>
-					<height>48</height>height>
-					<align>center</align>
-					<aligny>top</aligny>
-					<font>Font48</font>
-					<label>35000</label>
-					<textcolor>$INFO[Skin.String(Color.DIATitle)]</textcolor>
-				</control>	
-
-				<!-- Product infos -->
-				<control type="label">
-					<top>80</top>
-					<left>24</left>
-					<width>588</width>
-					<height>156</height>height>
-					<align>center</align>
-					<aligny>top</aligny>
-					<font>Font36</font>
-					<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
-					<label>$INFO[Container(20).ListItem.Property(Vendor),, ]$INFO[Container(20).ListItem.Property(Class)]</label>
-				</control>		
-				
-				<!-- Button grouplist -->
-				<control type="grouplist" id="9000">
-					<right>24</right>
-					<top>267</top>
-					<width>588</width>
-					<height>60</height>
-					<itemgap>1</itemgap>
-					<align>right</align>
-					<onleft>20</onleft>
-					<onright>noop</onright>
-					<onup condition="StringCompare(Window(Home).Property(SidebarPos),LEFT) | StringCompare(Window(Home).Property(SidebarPos),RIGHT)">20</onup>
-					<ondown>noop</ondown>
-					<orientation>horizontal</orientation>
-
-					<!-- OK Button -->
-					<control type="button" id="10">
-						<width>auto</width>
-						<height>60</height>
-						<label>186</label>
-						<font>Font27</font>
-						<align>center</align>
-						<texturefocus colordiffuse="$VAR[CategoryColor3]">common/white.png</texturefocus>
-						<texturenofocus colordiffuse="00FFFFFF">common/white.png</texturenofocus>
-						<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
-						<focusedcolor>$INFO[Skin.String(Color.DIATxtF)]</focusedcolor>
-						<disabledcolor>$INFO[Skin.String(Color.DIAInvalid)]</disabledcolor>
-						<invalidcolor>$INFO[Skin.String(Color.DIAInvalid)]</invalidcolor>
-					</control>
-				</control>	
-			
-			</control>
-		</control>
-	</include>	
 	
 	<include name="DiaPeripheralSettings">
 	
@@ -3622,128 +3269,6 @@
 						<invalidcolor>$INFO[Skin.String(Color.DIAInvalid)]</invalidcolor>
 					</control>										
 				</control>	
-			
-			</control>
-		</control>
-	</include>	
-
-	<include name="DiaVisualisationPreset">
-	
-		<control type="group">
-		<animation effect="fade" start="0" end="100" time="100" delay="100">WindowOpen</animation>
-		<animation effect="fade" start="100" end="0" time="100" delay="100">WindowClose</animation>
-	
-			<!-- Bloc 1 -->
-			<control type="group">
-				<left>$PARAM[DIAB1PosX]</left>
-				<top>$PARAM[DIAB1PosY]</top>
-				<height>356</height>
-				<width>636</width>
-
-				<!-- Image -->
-				<control type="image">
-					<top>24</top>
-					<left>24</left>
-					<height>308</height>
-					<width>588</width>							
-					<texture  colordiffuse="$INFO[Skin.String(Color.DIATxtNF)]">DefaultAddonVisualization.png</texture>
-					<aspectratio aligny="center">keep</aspectratio>
-				</control>					
-				
-			</control>
-			
-			<!-- Bloc 2 -->
-			<control type="group">
-				<visible>!Window.IsVisible(10106)</visible>
-				<left>$PARAM[DIAB2PosX]</left>
-				<top>$PARAM[DIAB2PosY]</top>
-				<height>356</height>
-				<width>636</width>
-
-				<!-- Main list -->
-				<control type="list" id="5">
-					<left>24</left>
-					<top>24</top>
-					<onup>noop</onup>
-					<ondown>noop</ondown>
-					<onright>noop</onright>
-					<onleft>noop</onleft>
-					<height>305</height>
-					<scrolltime>200</scrolltime>
-					<orientation>vertical</orientation>
-
-					<itemlayout width="588" height="61">
-						<control type="label">
-							<top>0</top>
-							<left>12</left>
-							<width>496</width>
-							<height>60</height>
-							<align>left</align>
-							<font>Font27</font>
-							<scroll>True</scroll>
-							<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-					</itemlayout>
-					
-					<focusedlayout width="588" height="61">
-						<control type="image">
-							<left>0</left>
-							<top>0</top>
-							<width>588</width>
-							<height>60</height>
-							<align>center</align>
-							<texture colordiffuse="$VAR[CategoryColor3]">common/white.png</texture>
-						</control>
-						<control type="label">
-							<top>0</top>
-							<left>12</left>
-							<width>496</width>
-							<height>60</height>
-							<align>left</align>
-							<font>Font27</font>
-							<scroll>True</scroll>
-							<textcolor>$INFO[Skin.String(Color.DIATxtF)]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-					</focusedlayout>		
-				</control>
-
-				<control type="label" id="4">
-					<top>24</top>
-					<left>24</left>
-					<width>588</width>
-					<height>308</height>
-					<align>center</align>
-					<aligny>center</aligny>
-					<font>Font27</font>
-					<scroll>True</scroll>
-					<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
-					<label>$INFO[ListItem.Label]</label>
-					<wrapmultiline>true</wrapmultiline>
-				</control>									
-				
-			</control>
-			
-			<!-- Bloc 3 -->
-			<control type="group">
-				<left>$PARAM[DIAB3PosX]</left>
-				<top>$PARAM[DIAB3PosY]</top>
-				<height>356</height>
-				<width>636</width>
-
-				<!-- Heading -->
-				<control type="label">
-					<top>24</top>
-					<left>24</left>
-					<width>588</width>
-					<height>48</height>height>
-					<align>center</align>
-					<aligny>top</aligny>
-					<font>Font48</font>
-					<label>31054</label>
-					<textcolor>$INFO[Skin.String(Color.DIATitle)]</textcolor>
-				</control>					
 			
 			</control>
 		</control>
@@ -4510,144 +4035,6 @@
 						<focusedcolor>$INFO[Skin.String(Color.DIATxtF)]</focusedcolor>
 						<disabledcolor>$INFO[Skin.String(Color.DIAInvalid)]</disabledcolor>
 						<invalidcolor>$INFO[Skin.String(Color.DIAInvalid)]</invalidcolor>
-					</control>
-																	
-				</control>								
-			</control>				
-		</control>
-	</include>
-
-	<include name="DiaFileStacking">
-	
-		<control type="group">
-		<animation effect="fade" start="0" end="100" time="100" delay="100">WindowOpen</animation>
-		<animation effect="fade" start="100" end="0" time="100" delay="100">WindowClose</animation>
-	
-			<!-- Bloc 1 -->
-			<control type="group">
-				<left>$PARAM[DIAB1PosX]</left>
-				<top>$PARAM[DIAB1PosY]</top>
-				<height>356</height>
-				<width>636</width>
-
-				<!-- Image -->
-				<control type="image">
-					<top>24</top>
-					<left>24</left>
-					<height>308</height>
-					<width>588</width>							
-					<texture  colordiffuse="$INFO[Skin.String(Color.DIATxtNF)]">material/filestacking.png</texture>
-					<aspectratio aligny="center">keep</aspectratio>
-				</control>					
-				
-			</control>
-			
-			<!-- Bloc 2 -->
-			<control type="group">
-				<visible>!Window.IsVisible(10106)</visible>
-				<left>$PARAM[DIAB2PosX]</left>
-				<top>$PARAM[DIAB2PosY]</top>
-				<height>356</height>
-				<width>636</width>
-
-				<!-- Main List -->
-				<control type="list" id="450">
-					<left>24</left>
-					<top>24</top>
-					<onup>noop</onup>
-					<ondown>noop</ondown>
-					<onright>9000</onright>
-					<onleft>noop</onleft>
-					<height>305</height>
-					<scrolltime>200</scrolltime>
-					<orientation>vertical</orientation>
-
-					<itemlayout width="588" height="61">
-						<control type="label">
-							<top>0</top>
-							<left>12</left>
-							<width>496</width>
-							<height>60</height>
-							<align>left</align>
-							<font>Font27</font>
-							<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-					</itemlayout>
-					
-					<focusedlayout width="588" height="61">
-						<control type="image">
-							<left>0</left>
-							<top>0</top>
-							<width>588</width>
-							<height>60</height>
-							<align>center</align>
-							<texture colordiffuse="$VAR[CategoryColor3]">common/white.png</texture>
-						</control>
-						<control type="label">
-							<top>0</top>
-							<left>12</left>
-							<width>496</width>
-							<height>60</height>
-							<align>left</align>
-							<font>Font27</font>
-							<scroll>True</scroll>
-							<textcolor>$INFO[Skin.String(Color.DIATxtF)]</textcolor>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-					</focusedlayout>		
-				</control>												
-				
-			</control>
-			
-			<!-- Bloc 3 -->
-			<control type="group">
-				<left>$PARAM[DIAB3PosX]</left>
-				<top>$PARAM[DIAB3PosY]</top>
-				<height>356</height>
-				<width>636</width>
-
-				<!-- Heading -->
-				<control type="label">
-					<top>24</top>
-					<left>24</left>
-					<width>588</width>
-					<height>48</height>height>
-					<align>center</align>
-					<aligny>top</aligny>
-					<font>Font48</font>
-					<label>$INFO[ListItem.Label]</label>
-					<textcolor>$INFO[Skin.String(Color.DIATitle)]</textcolor>
-				</control>		
-
-				<!-- Button grouplist -->
-				<control type="grouplist" id="9000">
-					<right>24</right>
-					<top>267</top>
-					<width>588</width>
-					<height>60</height>
-					<itemgap>1</itemgap>
-					<align>right</align>
-					<onleft>450</onleft>
-					<onright>noop</onright>
-					<onup condition="StringCompare(Window(Home).Property(SidebarPos),LEFT) | StringCompare(Window(Home).Property(SidebarPos),RIGHT)">450</onup>
-					<ondown>noop</ondown>
-					<orientation>horizontal</orientation>
-
-					<!-- OK Button -->
-					<control type="button" id="28">
-						<width>auto</width>
-						<height>60</height>
-						<label>186</label>
-						<font>Font27</font>
-						<align>center</align>
-						<texturefocus colordiffuse="$VAR[CategoryColor3]">common/white.png</texturefocus>
-						<texturenofocus colordiffuse="00FFFFFF">common/white.png</texturenofocus>
-						<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
-						<focusedcolor>$INFO[Skin.String(Color.DIATxtF)]</focusedcolor>
-						<disabledcolor>$INFO[Skin.String(Color.DIAInvalid)]</disabledcolor>
-						<invalidcolor>$INFO[Skin.String(Color.DIAInvalid)]</invalidcolor>
-						<onclick>Close</onclick>
 					</control>
 																	
 				</control>								
@@ -9816,6 +9203,26 @@
 				<height>356</height>
 				<width>636</width>
 
+				<!-- Dummy button for 211 focus -->
+				<control type="button" id="212">
+					<visible allowhiddenfocus="true">false</visible>
+					<onleft>211</onleft>
+					<onright>211</onright>
+					<onup>noop</onup>
+					<ondown>Control.SetFocus(300,0)</ondown>
+					<onclick>noop</onclick>
+				</control>
+
+				<control type="image">
+					<left>24</left>
+					<top>24</top>
+					<width>588</width>
+					<height>308</height>
+					<aspectratio>scale</aspectratio>
+					<texture colordiffuse="FFFFFFFF">$INFO[Container(211).ListItem.Property(homeart)]</texture>
+					<animation effect="fade" start="100" end="40" time="200" condition="!StringCompare(Container(300).ListItem.Property(ID),HomeArt)">Conditional</animation>
+				</control>				
+
 				<!-- Main list -->
 				<control type="fixedlist" id="211">
 					<top>100</top>
@@ -9825,7 +9232,7 @@
 					<onleft>Back</onleft>
 					<onright>noop</onright>
 					<onup>noop</onup>
-					<ondown>9001</ondown>
+					<ondown>300</ondown>
 					<orientation>horizontal</orientation>
 					<focusposition>2</focusposition>
 					<scrolltime tween="sine" easing="out">240</scrolltime>
@@ -9890,201 +9297,219 @@
 				<left>$PARAM[DIAB2PosX]</left>
 				<top>$PARAM[DIAB2PosY]</top>
 				<height>356</height>
-				<width>636</width>
+				<width>636</width>		
 
 				<!-- Sub list -->
-				<control type="grouplist" id="9001">
+				<control type="list" id="300">
 					<top>24</top>
 					<left>24</left>
 					<width>588</width>
 					<height>308</height>
 					<onleft>211</onleft>
 					<onright>9002</onright>
-					<onup>noop</onup>
-					<ondown>noop</ondown>
-					<itemgap>1</itemgap>
+					<onup>211</onup>
+					<ondown>9002</ondown>
 					<orientation>vertical</orientation>
-					<usecontrolcoords>true</usecontrolcoords>
 					<scrolltime tween="sine" easing="out">240</scrolltime>	
 
-					<!-- Change shortcut -->
-					<control type="button" id="401">
-						<label>$ADDON[script.skinshortcuts 32048]</label>
-						<!--label2>$INFO[Container(211).ListItem.Property(displaypath)]</label2-->
-						<width>588</width>
-						<height>60</height>
-						<align>left</align>
-						<aligny>center</aligny>
-						<font>Font27</font>
-						<texturefocus colordiffuse="$VAR[CategoryColor3]">common/white.png</texturefocus>
-						<texturenofocus colordiffuse="00FFFFFF">common/white.png</texturenofocus>
-						<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
-						<focusedcolor>$INFO[Skin.String(Color.DIATxtF)]</focusedcolor>
-						<disabledcolor>$INFO[Skin.String(Color.DIAInvalid)]</disabledcolor>
-						<invalidcolor>$INFO[Skin.String(Color.DIAInvalid)]</invalidcolor>
-					</control>	
-					<!-- Change label -->
-					<control type="button" id="305">
-						<label>$ADDON[script.skinshortcuts 32025]</label>
-						<!--label2>$INFO[Container(211).ListItem.Label]</label2-->
-						<width>588</width>
-						<height>60</height>
-						<align>left</align>
-						<aligny>center</aligny>
-						<font>Font27</font>
-						<texturefocus colordiffuse="$VAR[CategoryColor3]">common/white.png</texturefocus>
-						<texturenofocus colordiffuse="00FFFFFF">common/white.png</texturenofocus>
-						<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
-						<focusedcolor>$INFO[Skin.String(Color.DIATxtF)]</focusedcolor>
-						<disabledcolor>$INFO[Skin.String(Color.DIAInvalid)]</disabledcolor>
-						<invalidcolor>$INFO[Skin.String(Color.DIAInvalid)]</invalidcolor>
-					</control>
-					<!-- Change Icon -->
-					<control type="button" id="311">			
-						<label>$ADDON[script.skinshortcuts 32026]</label>
-						<!--label2>$INFO[Container(211).ListItem.Property(Icon)]</label2-->
-						<width>588</width>
-						<height>60</height>
-						<align>left</align>
-						<aligny>center</aligny>
-						<font>Font27</font>
-						<texturefocus colordiffuse="$VAR[CategoryColor3]">common/white.png</texturefocus>
-						<texturenofocus colordiffuse="00FFFFFF">common/white.png</texturenofocus>
-						<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
-						<focusedcolor>$INFO[Skin.String(Color.DIATxtF)]</focusedcolor>
-						<disabledcolor>$INFO[Skin.String(Color.DIAInvalid)]</disabledcolor>
-						<invalidcolor>$INFO[Skin.String(Color.DIAInvalid)]</invalidcolor>
-					</control>
-					<!-- Change background -->				
-					<control type="button" id="310">	
-						<label>$ADDON[script.skinshortcuts 32045]</label>
-						<!--label2>$INFO[Container(211).ListItem.Property(Background)]</label2-->
-						<width>588</width>
-						<height>60</height>
-						<align>left</align>
-						<aligny>center</aligny>
-						<font>Font27</font>
-						<texturefocus colordiffuse="$VAR[CategoryColor3]">common/white.png</texturefocus>
-						<texturenofocus colordiffuse="00FFFFFF">common/white.png</texturenofocus>
-						<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
-						<focusedcolor>$INFO[Skin.String(Color.DIATxtF)]</focusedcolor>
-						<disabledcolor>$INFO[Skin.String(Color.DIAInvalid)]</disabledcolor>
-						<invalidcolor>$INFO[Skin.String(Color.DIAInvalid)]</invalidcolor>
-					</control>
-					<!-- Change action -->
-					<control type="button" id="307">
-						<label>$ADDON[script.skinshortcuts 32027]</label>
-						<!--label2>$INFO[Container(211).ListItem.Property(displaypath)]</label2-->
-						<width>588</width>
-						<height>60</height>
-						<align>left</align>
-						<aligny>center</aligny>
-						<font>Font27</font>
-						<texturefocus colordiffuse="$VAR[CategoryColor3]">common/white.png</texturefocus>
-						<texturenofocus colordiffuse="00FFFFFF">common/white.png</texturenofocus>
-						<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
-						<focusedcolor>$INFO[Skin.String(Color.DIATxtF)]</focusedcolor>
-						<disabledcolor>$INFO[Skin.String(Color.DIAInvalid)]</disabledcolor>
-						<invalidcolor>$INFO[Skin.String(Color.DIAInvalid)]</invalidcolor>
-					</control>
-					<!-- Edit sub menu -->
-					<control type="button" id="405">
-						<label>$ADDON[script.skinshortcuts 32072]</label>
-						<label2>-</label2>
-						<width>588</width>
-						<height>60</height>
-						<align>left</align>
-						<aligny>center</aligny>
-						<font>Font27</font>
-						<texturefocus colordiffuse="$VAR[CategoryColor3]">common/white.png</texturefocus>
-						<texturenofocus colordiffuse="00FFFFFF">common/white.png</texturenofocus>
-						<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
-						<focusedcolor>$INFO[Skin.String(Color.DIATxtF)]</focusedcolor>
-						<disabledcolor>$INFO[Skin.String(Color.DIAInvalid)]</disabledcolor>
-						<invalidcolor>$INFO[Skin.String(Color.DIAInvalid)]</invalidcolor>
-						<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
-					</control>
-					<!-- Edit widget -->
-					<control type="button" id="312">
-						<label>$ADDON[script.skinshortcuts 32044]</label>
-						<!--label2>$INFO[Container(211).ListItem.Property(WidgetName)]</label2-->
-						<width>588</width>
-						<height>60</height>
-						<align>left</align>
-						<aligny>center</aligny>
-						<font>Font27</font>
-						<texturefocus colordiffuse="$VAR[CategoryColor3]">common/white.png</texturefocus>
-						<texturenofocus colordiffuse="00FFFFFF">common/white.png</texturenofocus>
-						<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
-						<focusedcolor>$INFO[Skin.String(Color.DIATxtF)]</focusedcolor>
-						<disabledcolor>$INFO[Skin.String(Color.DIAInvalid)]</disabledcolor>
-						<invalidcolor>$INFO[Skin.String(Color.DIAInvalid)]</invalidcolor>
-						<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
-					</control>
-					<!-- Move Up -->
-					<control type="button" id="303">
-						<label>$ADDON[script.skinshortcuts 32002]</label>
-						<label2>-</label2>
-						<width>588</width>
-						<height>60</height>
-						<align>left</align>
-						<aligny>center</aligny>
-						<font>Font27</font>
-						<texturefocus colordiffuse="$VAR[CategoryColor3]">common/white.png</texturefocus>
-						<texturenofocus colordiffuse="00FFFFFF">common/white.png</texturenofocus>
-						<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
-						<focusedcolor>$INFO[Skin.String(Color.DIATxtF)]</focusedcolor>
-						<disabledcolor>$INFO[Skin.String(Color.DIAInvalid)]</disabledcolor>
-						<invalidcolor>$INFO[Skin.String(Color.DIAInvalid)]</invalidcolor>
-					</control>
-					<!-- Move Down -->
-					<control type="button" id="304">
-						<label>$ADDON[script.skinshortcuts 32003]</label>
-						<label2>-</label2>
-						<width>588</width>
-						<height>60</height>
-						<align>left</align>
-						<aligny>center</aligny>
-						<font>Font27</font>
-						<texturefocus colordiffuse="$VAR[CategoryColor3]">common/white.png</texturefocus>
-						<texturenofocus colordiffuse="00FFFFFF">common/white.png</texturenofocus>
-						<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
-						<focusedcolor>$INFO[Skin.String(Color.DIATxtF)]</focusedcolor>
-						<disabledcolor>$INFO[Skin.String(Color.DIAInvalid)]</disabledcolor>
-						<invalidcolor>$INFO[Skin.String(Color.DIAInvalid)]</invalidcolor>
-					</control>
-					<!-- Remove -->
-					<control type="button" id="302">
-						<label>$ADDON[script.skinshortcuts 32001]</label>
-						<label2>-</label2>
-						<width>588</width>
-						<height>60</height>
-						<align>left</align>
-						<aligny>center</aligny>
-						<font>Font27</font>
-						<texturefocus colordiffuse="$VAR[CategoryColor3]">common/white.png</texturefocus>
-						<texturenofocus colordiffuse="00FFFFFF">common/white.png</texturenofocus>
-						<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
-						<focusedcolor>$INFO[Skin.String(Color.DIATxtF)]</focusedcolor>
-						<disabledcolor>$INFO[Skin.String(Color.DIAInvalid)]</disabledcolor>
-						<invalidcolor>$INFO[Skin.String(Color.DIAInvalid)]</invalidcolor>
-					</control>
-					<!-- Add item -->
-					<control type="button" id="301">
-						<label>$ADDON[script.skinshortcuts 32000]</label>
-						<label2>-</label2>
-						<width>588</width>
-						<height>60</height>
-						<align>left</align>
-						<aligny>center</aligny>
-						<font>Font27</font>
-						<texturefocus colordiffuse="$VAR[CategoryColor3]">common/white.png</texturefocus>
-						<texturenofocus colordiffuse="00FFFFFF">common/white.png</texturenofocus>
-						<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
-						<focusedcolor>$INFO[Skin.String(Color.DIATxtF)]</focusedcolor>
-						<disabledcolor>$INFO[Skin.String(Color.DIAInvalid)]</disabledcolor>
-						<invalidcolor>$INFO[Skin.String(Color.DIAInvalid)]</invalidcolor>
-					</control>
+					<itemlayout width="588" height="61">
+						<control type="image">
+							<left>24</left>
+							<top>10</top>
+							<height>40</height>
+							<width>40</width>
+							<texture colordiffuse="$INFO[Skin.String(Color.DIATxtNF)]">$INFO[ListItem.ActualIcon]</texture>
+							<visible>!IsEmpty(ListItem.Label2)</visible>
+						</control>
+						<control type="image">
+							<left>24</left>
+							<top>10</top>
+							<height>40</height>
+							<width>40</width>
+							<texture colordiffuse="$INFO[Skin.String(Color.DIATxtNF)]">$INFO[ListItem.Thumb]</texture>
+							<visible>IsEmpty(ListItem.Label2)</visible>
+						</control>
+						<control type="label">
+							<label>$INFO[ListItem.Label]</label>
+							<left>88</left>
+							<width>540</width>
+							<height>60</height>
+							<align>left</align>
+							<aligny>center</aligny>
+							<font>Font27</font>
+							<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
+						</control>
+					</itemlayout>
+
+					<focusedlayout width="588" height="61">
+						<control type="group">
+							<visible>Control.HasFocus(300)</visible>
+							<control type="image">
+								<texture colordiffuse="$VAR[CategoryColor3]">common/white.png</texture>
+							</control>
+							<control type="image">
+								<left>24</left>
+								<top>10</top>
+								<height>40</height>
+								<width>40</width>
+								<texture colordiffuse="$INFO[Skin.String(Color.DIATxtF)]">$INFO[ListItem.ActualIcon]</texture>
+								<visible>!IsEmpty(ListItem.Label2)</visible>
+							</control>
+							<control type="image">
+								<left>24</left>
+								<top>10</top>
+								<height>40</height>
+								<width>40</width>
+								<texture colordiffuse="$INFO[Skin.String(Color.DIATxtF)]">$INFO[ListItem.Thumb]</texture>
+								<visible>IsEmpty(ListItem.Label2)</visible>
+							</control>
+							<control type="label">
+								<label>$INFO[ListItem.Label]</label>
+								<left>88</left>
+								<width>540</width>
+								<height>60</height>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Font27</font>
+								<textcolor>$INFO[Skin.String(Color.DIATxtF)]</textcolor>
+							</control>
+						</control>
+						<control type="group">
+							<visible>!Control.HasFocus(300)</visible>
+							<control type="image">
+								<left>24</left>
+								<top>10</top>
+								<height>40</height>
+								<width>40</width>
+								<texture colordiffuse="$INFO[Skin.String(Color.DIATxtNF)]">$INFO[ListItem.ActualIcon]</texture>
+								<visible>!IsEmpty(ListItem.Label2)</visible>
+							</control>
+							<control type="image">
+								<left>24</left>
+								<top>10</top>
+								<height>40</height>
+								<width>40</width>
+								<texture colordiffuse="$INFO[Skin.String(Color.DIATxtNF)]">$INFO[ListItem.Thumb]</texture>
+								<visible>IsEmpty(ListItem.Label2)</visible>
+							</control>
+							<control type="label">
+								<label>$INFO[ListItem.Label]</label>
+								<left>88</left>
+								<width>540</width>
+								<height>60</height>
+								<align>left</align>
+								<aligny>center</aligny>
+								<font>Font27</font>
+								<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
+							</control>
+						</control>
+					</focusedlayout>
+
+					<content>				
+						<!-- Edit widget -->
+						<item>
+							<icon>material/radioon.png</icon>
+							<thumb>material/radiooff.png</thumb>
+							<label>$ADDON[script.skinshortcuts 32044]</label>
+							<label2>$INFO[Container(211).ListItem.Property(WidgetName)]</label2>
+							<onclick>SendClick(312)</onclick>
+							<visible>StringCompare(Window.Property(groupname),mainmenu)</visible> 
+						</item>	
+						<!-- Change background -->		
+						<item>
+							<icon>material/radioon.png</icon>
+							<thumb>material/radiooff.png</thumb>
+							<label>$ADDON[script.skinshortcuts 32045]</label>
+							<label2>$INFO[Container(211).ListItem.Property(backgroundName)]</label2>
+							<onclick>SendClick(310)</onclick>
+							<visible>StringCompare(Window.Property(groupname),mainmenu)</visible> 
+						</item>	
+						<!-- Set ViewType -->
+						<item>
+							<icon>material/radioon.png</icon>
+							<thumb>material/radiooff.png</thumb>
+							<label>31133</label>
+							<label2>$INFO[Container(211).ListItem.Property(viewtype)]</label2>
+							<onclick>SetProperty(chooseProperty,viewtype)</onclick>
+							<onclick>SendClick(404)</onclick>
+							<visible>StringCompare(Window.Property(groupname),mainmenu)</visible> 
+						</item>						
+						<!-- Set HomeArt -->
+						<item>
+							<icon>material/radioon.png</icon>
+							<thumb>material/radiooff.png</thumb>
+							<label>31137</label>
+							<label2>$INFO[Container(211).ListItem.Property(homeart)]</label2>
+							<onclick>SetProperty(chooseProperty,homeart)</onclick>
+							<onclick>SendClick(404)</onclick>
+							<visible>StringCompare(Window.Property(groupname),mainmenu)</visible>
+							<property name="ID">HomeArt</property>
+						</item>		
+						<!-- Change shortcut -->
+						<item>
+							<icon>material/pencil2.png</icon>
+							<label>$ADDON[script.skinshortcuts 32048]</label>
+							<label2>$INFO[Container(211).ListItem.Property(displaypath)]</label2>
+							<onclick>SendClick(401)</onclick>
+						</item>	
+						<!-- Change label -->
+						<item>
+							<icon>material/pencil2.png</icon>
+							<label>$ADDON[script.skinshortcuts 32025]</label>
+							<label2>$INFO[Container(211).ListItem.Label]</label2>
+							<onclick>SendClick(305)</onclick>
+						</item>	
+						<!-- Change Icon -->
+						<item>
+							<icon>material/pencil2.png</icon>
+							<label>31136</label>
+							<label2>31136</label2>
+							<onclick>SendClick(311)</onclick>
+						</item>	
+						<!-- Change action -->
+						<item>
+							<icon>material/pencil2.png</icon>
+							<label>$ADDON[script.skinshortcuts 32027]</label>
+							<label2>$INFO[Container(211).ListItem.Property(displaypath)]</label2>
+							<onclick>SendClick(307)</onclick>
+						</item>	
+						<!-- Edit sub menu -->
+						<item>
+							<icon>material/pencil2.png</icon>
+							<label>$ADDON[script.skinshortcuts 32072]</label>
+							<label2>$ADDON[script.skinshortcuts 32072]</label2>
+							<onclick>SendClick(405)</onclick>
+							<visible>StringCompare(Window.Property(groupname),mainmenu)</visible> 
+						</item>	
+						<!-- Move Left -->
+						<item>
+							<icon>material/left.png</icon>
+							<label>31134</label>
+							<label2>31134</label2>
+							<onclick>SendClick(303)</onclick>
+						</item>	
+						<!-- Move Right -->
+						<item>
+							<icon>material/right.png</icon>
+							<label>31135</label>
+							<label2>31135</label2>
+							<onclick>SendClick(304)</onclick>
+						</item>	
+						<!-- Add item -->
+						<item>
+							<icon>material/playlist.png</icon>
+							<label>$ADDON[script.skinshortcuts 32000]</label>
+							<label2>$ADDON[script.skinshortcuts 32000]</label2>
+							<onclick>SendClick(301)</onclick>
+						</item>	
+						<!-- Remove -->
+						<item>
+							<icon>material/playlistremove.png</icon>
+							<label>$ADDON[script.skinshortcuts 32001]</label>
+							<label2>$ADDON[script.skinshortcuts 32001]</label2>
+							<onclick>SendClick(302)</onclick>
+						</item>	
+					</content>	
 				</control>
 				
 			</control>
@@ -10117,7 +9542,7 @@
 					<align>center</align>
 					<aligny>top</aligny>
 					<font>Font36</font>
-					<label>$INFO[Container(211).ListItem.Property(displaypath)]</label>
+					<label>$VAR[ShortcutValue]</label>
 					<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
 					<wrapmultiline>true</wrapmultiline>
 				</control>					
@@ -10130,9 +9555,9 @@
 					<height>60</height>
 					<itemgap>1</itemgap>
 					<align>right</align>
-					<onleft>9001</onleft>
+					<onleft>300</onleft>
 					<onright>noop</onright>
-					<onup condition="StringCompare(Window(Home).Property(SidebarPos),LEFT) | StringCompare(Window(Home).Property(SidebarPos),RIGHT)">9001</onup>
+					<onup condition="StringCompare(Window(Home).Property(SidebarPos),LEFT) | StringCompare(Window(Home).Property(SidebarPos),RIGHT)">300</onup>
 					<ondown>noop</ondown>
 					<orientation>horizontal</orientation>
 
@@ -10191,6 +9616,223 @@
 		</control>
 	</include>
 
+		<include name="DiaBusy">
+	
+		<control type="group">
+		<animation effect="fade" start="0" end="100" time="100" delay="100">WindowOpen</animation>
+		<animation effect="fade" start="100" end="0" time="100" delay="100">WindowClose</animation>
+	
+			<!-- Bloc 1 -->
+			<control type="group">
+				<left>$PARAM[DIAB1PosX]</left>
+				<top>$PARAM[DIAB1PosY]</top>
+				<height>356</height>
+				<width>636</width>
+				
+			</control>
+			
+			<!-- Bloc 2 -->
+			<control type="group">
+				<visible>!Window.IsVisible(10106)</visible>
+				<left>$PARAM[DIAB2PosX]</left>
+				<top>$PARAM[DIAB2PosY]</top>
+				<height>356</height>
+				<width>636</width>
+
+				<!-- Heading -->
+				<control type="label">
+					<top>24</top>
+					<left>24</left>
+					<width>588</width>
+					<height>48</height>
+					<align>center</align>
+					<aligny>top</aligny>
+					<font>Font48</font>
+					<label>503</label>
+					<textcolor>$INFO[Skin.String(Color.DIATitle)]</textcolor>
+				</control>					
+
+				<!-- Please wait -->
+				<control type="label">
+					<top>80</top>
+					<left>24</left>
+					<width>588</width>
+					<height>156</height>height>
+					<align>center</align>
+					<aligny>top</aligny>
+					<font>Font36</font>
+					<label>20186</label>
+					<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
+					<wrapmultiline>true</wrapmultiline>
+				</control>
+
+				<!-- Scroll -->
+				<control type="image">
+					<left>230</left>
+					<top>200</top>
+					<width>176</width>
+					<height>2</height>
+					<texture border="1,12,1,1" colordiffuse="$INFO[Skin.String(Color.DIATxtNF)]">common/white.png</texture>
+				</control>
+				<control type="image">
+					<left>230</left>
+					<top>200</top>
+					<width>24</width>
+					<height>2</height>
+					<texture border="1,12,1,1" colordiffuse="$INFO[Skin.String(Color.DIATitle)]">common/white.png</texture>
+					<animation effect="slide" start="0,0" end="152,0" time="800" loop="true" tween="cubic" easing="out" condition="true">Conditional</animation>
+				</control>					
+				
+			</control>
+			
+			<!-- Bloc 3 -->
+			<control type="group">
+				<left>$PARAM[DIAB3PosX]</left>
+				<top>$PARAM[DIAB3PosY]</top>
+				<height>356</height>
+				<width>636</width>
+			
+			</control>
+		</control>
+	</include>
+
+	<include name="DiaExtendedVideoInfo">
+	
+		<control type="group">
+		<animation effect="fade" start="0" end="100" time="100" delay="100">WindowOpen</animation>
+		<animation effect="fade" start="100" end="0" time="100" delay="100">WindowClose</animation>
+	
+			<!-- Bloc 1 -->
+			<control type="group">
+				<left>$PARAM[DIAB1PosX]</left>
+				<top>$PARAM[DIAB1PosY]</top>
+				<height>356</height>
+				<width>636</width>
+
+				<!-- Heading -->
+				<control type="label">
+					<top>24</top>
+					<left>24</left>
+					<width>588</width>
+					<height>48</height>
+					<align>center</align>
+					<aligny>top</aligny>
+					<font>Font48</font>
+					<label>$INFO[Window.Property(movie.title)]</label>
+					<textcolor>$INFO[Skin.String(Color.DIATitle)]</textcolor>
+				</control>			
+				
+			</control>
+			
+			<!-- Bloc 2 -->
+			<control type="group">
+				<visible>!Window.IsVisible(10106)</visible>
+				<left>$PARAM[DIAB2PosX]</left>
+				<top>$PARAM[DIAB2PosY]</top>
+				<width>$PARAM[DIAB2SizeX]</width>
+				<height>$PARAM[DIAB2SizeY]</height>
+
+				<control type="panel" id="450">
+					<left>24</left>
+					<top>24</top>
+					<width>1224</width>
+					<height>332</height>
+					<onup>noop</onup>
+					<ondown>noop</ondown>
+					<onright>noop</onright>
+					<onleft>300</onleft>
+					<orientation>horizontal</orientation>
+					<scrolltime>100</scrolltime>		
+
+					<itemlayout width="204" height="332">
+						<control type="image">
+							<left>24</left>
+							<top>52</top>
+							<width>132</width>
+							<height>132</height>
+							<aspectratio>scale</aspectratio>
+							<texture colordiffuse="$INFO[Skin.String(Color.DIATxtNF)]">$INFO[ListItem.ActualIcon]</texture>
+						</control>				
+						<control type="image">
+							<width>180</width>
+							<height>236</height>
+							<aspectratio>scale</aspectratio>
+							<texture>$INFO[ListItem.Art(thumb)]</texture>
+						</control>
+						<control type="label">
+							<left>0</left>
+							<top>248</top>
+							<width>180</width>
+							<height>38</height>
+							<font>Font25</font>
+							<align>center</align>
+							<textcolor>$INFO[Skin.String(Color.DIATxtNF)]</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<left>0</left>
+							<top>278</top>
+							<width>180</width>
+							<height>36</height>
+							<font>FontSmallR</font>
+							<align>center</align>
+							<textcolor>$INFO[Skin.String(Color.DIATitle)]</textcolor>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+					</itemlayout>
+
+					<focusedlayout width="204" height="332">
+						<control type="image">
+							<left>24</left>
+							<top>52</top>
+							<width>132</width>
+							<height>132</height>
+							<aspectratio>scale</aspectratio>
+							<texture colordiffuse="$INFO[Skin.String(Color.DIATxtNF)]">$INFO[ListItem.ActualIcon]</texture>
+						</control>						
+						<control type="image">
+							<width>180</width>
+							<height>236</height>
+							<colordiffuse>FFFFFFFF</colordiffuse>
+							<aspectratio>scale</aspectratio>
+							<texture>$INFO[ListItem.Art(thumb)]</texture>
+						</control>
+						<control type="label">
+							<left>0</left>
+							<top>248</top>
+							<width>180</width>
+							<height>38</height>
+							<font>Font25</font>
+							<align>center</align>
+							<textcolor>$VAR[CategoryColor3]</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<left>0</left>
+							<top>278</top>
+							<width>180</width>
+							<height>36</height>
+							<font>FontSmallR</font>
+							<align>center</align>
+							<textcolor>$VAR[CategoryColor3]</textcolor>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+					</focusedlayout>
+				</control>
+				
+			</control>
+			
+			<!-- Bloc 3 -->
+			<control type="group">
+				<left>$PARAM[DIAB3PosX]</left>
+				<top>$PARAM[DIAB3PosY]</top>
+				<height>356</height>
+				<width>636</width>
+			
+			</control>
+		</control>
+	</include>	
+
 	<include name="Model">
 	
 		<control type="group">
@@ -10226,4 +9868,21 @@
 			</control>
 		</control>
 	</include>
+
+	<variable name="InfoDIATitle">
+		<value condition="!StringCompare(Container(300).ListItem.Label,$LOCALIZE[209]) + !Window.IsVisible(10142)">$INFO[ListItem.TagLine]</value>
+		<value condition="!StringCompare(Container(300).ListItem.Label,$LOCALIZE[209]) + Window.IsVisible(10142)">$INFO[ListItem.TagLine]</value>
+		<value condition="StringCompare(Container(300).ListItem.Label,$LOCALIZE[209])">$INFO[ListItem.NextTitle]</value>
+	</variable>
+
+	<variable name="InfoDIAPlot">
+		<value condition="Window.IsActive(fullscreeninfo) + !IsEmpty(VideoPlayer.Plot)">$INFO[VideoPlayer.Plot]</value>
+		<value condition="Window.IsActive(visualisation) + StringCompare(Container(300).ListItem.Label,$LOCALIZE[21891])">$INFO[MusicPlayer.Property(Artist_Description)]</value>
+		<value condition="Window.IsActive(visualisation) + StringCompare(Container(300).ListItem.Label,$LOCALIZE[10523])">$INFO[MusicPlayer.Property(Album_Description)]</value>
+		<value condition="Window.IsActive(addoninformation) + !Window.IsActive(visualisation)">$INFO[ListItem.Property(Addon.Description)]</value>
+		<value condition="StringCompare(Container(300).ListItem.Label,$LOCALIZE[21891]) + !IsEmpty(ListItem.Property(Artist_Description))">$INFO[ListItem.Property(Artist_Description)]</value>
+		<value condition="StringCompare(Container(300).ListItem.Label,$LOCALIZE[10523]) + !IsEmpty(ListItem.Property(Album_Description))">$INFO[ListItem.Property(Album_Description)]</value>
+		<value>$INFO[ListItem.Plot]</value>
+	</variable>
+
 </includes>
