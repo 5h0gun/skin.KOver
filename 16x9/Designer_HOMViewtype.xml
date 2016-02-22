@@ -10,7 +10,7 @@
 			<control type="image">
 				<texture background="true">$INFO[Container($PARAM[Id]).ListItem.Art(fanart)]</texture>
 				<aspectratio>scale</aspectratio>
-				<visible>[!Player.HasVideo | !Skin.String($PARAM[CompPrefix].WPVDOTop,VISIBLE)] + Skin.String($PARAM[CompPrefix].WPBgs,FANART) + !IsEmpty(Container($PARAM[Id]).ListItem.Art(fanart)) + [IsEmpty(Container(9000).ListItem.Property(background) | Control.HasFocus($PARAM[Id])]</visible>
+				<visible>[!Player.HasVideo | !Skin.String($PARAM[CompPrefix].WPVDOTop,VISIBLE)] + Skin.String($PARAM[CompPrefix].WPBgs,FANART) + !IsEmpty(Container($PARAM[Id]).ListItem.Art(fanart)) + [IsEmpty(Container(9000).ListItem.Property(background)) | Control.HasFocus($PARAM[Id])]</visible>
 			</control>
 
 			<control type="group">
@@ -28,39 +28,28 @@
 						<param name="Prefix" value="$PARAM[CompPrefix]" />
 					</include>
 					<texture colordiffuse="$INFO[Skin.String(Color.BBBg)]">common/white.png</texture>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(5) + Skin.String(IdleFade,5) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].BBShow,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(10) + Skin.String(IdleFade,10) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].BBShow,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(15) + Skin.String(IdleFade,15) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].BBShow,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(20) + Skin.String(IdleFade,20) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].BBShow,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(25) + Skin.String(IdleFade,25) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].BBShow,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(30) + Skin.String(IdleFade,30) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].BBShow,IDLEFADE)">Conditonal</animation>
+					<include condition="!Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].BBShow,IDLEFADE)">IdleFadeTimer</include>
 					<visible>!Skin.String($PARAM[CompPrefix].BBShow,HIDDEN)</visible>
 					<visible>IsEmpty(Skin.String($PARAM[CompPrefix].BBPic)) | !Skin.String($PARAM[CompPrefix].BBBgs,IMAGE)</visible>
 				</control>
-				<control type="image">
+				<control type="multiimage">
 					<include name="BgPosition">
 						<param name="Prefix" value="$PARAM[CompPrefix]" />
 					</include>
 					<aspectratio>scale</aspectratio>
-					<texture colordiffuse="FFFFFFFF">$INFO[Skin.String($PARAM[CompPrefix].BBPic)]</texture>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(5) + Skin.String(IdleFade,5) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].BBShow,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(10) + Skin.String(IdleFade,10) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].BBShow,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(15) + Skin.String(IdleFade,15) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].BBShow,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(20) + Skin.String(IdleFade,20) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].BBShow,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(25) + Skin.String(IdleFade,25) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].BBShow,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(30) + Skin.String(IdleFade,30) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].BBShow,IDLEFADE)">Conditonal</animation>
+					<timeperimage>5000</timeperimage>
+					<fadetime>2000</fadetime>
+					<pauseatend>10000</pauseatend>
+					<randomize>true</randomize>
+					<imagepath>$INFO[Skin.String($PARAM[CompPrefix].BBPic)]</imagepath>
+					<include condition="!Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].BBShow,IDLEFADE)">IdleFadeTimer</include>
 					<visible>!Skin.String($PARAM[CompPrefix].BBShow,HIDDEN)</visible>
 					<visible>!IsEmpty(Skin.String($PARAM[CompPrefix].BBPic)) + Skin.String($PARAM[CompPrefix].BBBgs,IMAGE)</visible>
 				</control>	
 
 				<!-- Bloc 4 / special background -->
 				<control type="group">
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(5) + Skin.String(IdleFade,5) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B4Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(10) + Skin.String(IdleFade,10) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B4Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(15) + Skin.String(IdleFade,15) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B4Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(20) + Skin.String(IdleFade,20) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B4Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(25) + Skin.String(IdleFade,25) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B4Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(30) + Skin.String(IdleFade,30) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B4Show,IDLEFADE)">Conditonal</animation>
+					<include condition="!Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B4Show,IDLEFADE)">IdleFadeTimer</include>
 					<animation effect="fade" start="100" end="0" time="200" condition="[Window.IsVisible(contextmenu) | Control.HasFocus(9001)] + Skin.String($PARAM[CompPrefix].B5B4ShowOF,HIDE)">Conditional</animation>
 					<include name="BlocPosition">
 						<param name="Prefix" value="$PARAM[CompPrefix]" />
@@ -84,12 +73,7 @@
 				
 				<!-- Bloc 3 -->
 				<control type="group">
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(5) + Skin.String(IdleFade,5) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B3Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(10) + Skin.String(IdleFade,10) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B3Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(15) + Skin.String(IdleFade,15) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B3Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(20) + Skin.String(IdleFade,20) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B3Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(25) + Skin.String(IdleFade,25) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B3Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(30) + Skin.String(IdleFade,30) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B3Show,IDLEFADE)">Conditonal</animation>
+					<include condition="!Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B3Show,IDLEFADE)">IdleFadeTimer</include>
 					<animation effect="fade" start="100" end="0" time="200" condition="[Window.IsVisible(contextmenu) | Control.HasFocus(9001)] + Skin.String($PARAM[CompPrefix].B5B3ShowOF,HIDE)">Conditional</animation>
 					<include name="BlocPosition">
 						<param name="Prefix" value="$PARAM[CompPrefix]" />
@@ -145,7 +129,7 @@
 							<aligny>top</aligny>
 							<aspectratio>scale</aspectratio>
 							<texture background="true" colordiffuse="FFFFFFFF">$VAR[B3Art]</texture>
-							<visible>[Skin.String($PARAM[CompPrefix].B3Typ,THUMB) + IsEmpty(Container($PARAM[Id]).ListItem.Art(thumb))] | [Skin.String($PARAM[CompPrefix].B3Typ,FANART) + IsEmpty(Container($PARAM[Id]).ListItem.Art(fanart))] | [Skin.String($PARAM[CompPrefix].B3Typ,POSTER) + IsEmpty(Container($PARAM[Id]).ListItem.Art(poster)) + IsEmpty(Container($PARAM[Id]).ListItem.Art(tvshow.poster))] | [Skin.String($PARAM[CompPrefix].B3Typ,CLEARART) + IsEmpty(Container($PARAM[Id]).ListItem.Art(clearart))] | [Skin.String($PARAM[CompPrefix].B3Typ,CLEARLOGO) + IsEmpty(Container($PARAM[Id]).ListItem.Art(clearlogo))] | [Skin.String($PARAM[CompPrefix].B3Typ,LANDSCAPE) + IsEmpty(Container($PARAM[Id]).ListItem.Art(landscape))] | [Skin.String($PARAM[CompPrefix].B3Typ,DISCART) + IsEmpty(Container($PARAM[Id]).ListItem.Art(discart))] | IsEmpty(Skin.String($PARAM[CompPrefix].B3Typ))</visible>
+							<visible>[Skin.String($PARAM[CompPrefix].B3Typ,THUMB) + IsEmpty(Container($PARAM[Id]).ListItem.Art(thumb))] | [Skin.String($PARAM[CompPrefix].B3Typ,FANART) + IsEmpty(Container($PARAM[Id]).ListItem.Art(fanart))] | [Skin.String($PARAM[CompPrefix].B3Typ,POSTER) + IsEmpty(Container($PARAM[Id]).ListItem.Art(poster)) + IsEmpty(Container($PARAM[Id]).ListItem.Art(tvshow.poster))] | [Skin.String($PARAM[CompPrefix].B3Typ,BANNER) + IsEmpty(Container($PARAM[Id]).ListItem.Art(banner))] | [Skin.String($PARAM[CompPrefix].B3Typ,CLEARART) + IsEmpty(Container($PARAM[Id]).ListItem.Art(clearart))] | [Skin.String($PARAM[CompPrefix].B3Typ,CLEARLOGO) + IsEmpty(Container($PARAM[Id]).ListItem.Art(clearlogo))] | [Skin.String($PARAM[CompPrefix].B3Typ,LANDSCAPE) + IsEmpty(Container($PARAM[Id]).ListItem.Art(landscape))] | [Skin.String($PARAM[CompPrefix].B3Typ,DISCART) + IsEmpty(Container($PARAM[Id]).ListItem.Art(discart))] | IsEmpty(Skin.String($PARAM[CompPrefix].B3Typ))</visible>
 						</control>	
 						<control type="image">
 							<left>0</left>
@@ -154,7 +138,7 @@
 							<aligny>top</aligny>
 							<aspectratio>scale</aspectratio>
 							<texture background="true" colordiffuse="FFFFFFFF">$INFO[Container($PARAM[Id]).ListItem.Art(fanart)]</texture>
-							<visible>[[Skin.String($PARAM[CompPrefix].B3Typ,THUMB) + IsEmpty(Container($PARAM[Id]).ListItem.Art(thumb))] | [Skin.String($PARAM[CompPrefix].B3Typ,FANART) + IsEmpty(Container($PARAM[Id]).ListItem.Art(fanart))] | [Skin.String($PARAM[CompPrefix].B3Typ,POSTER) + IsEmpty(Container($PARAM[Id]).ListItem.Art(poster)) + IsEmpty(Container($PARAM[Id]).ListItem.Art(tvshow.poster))] | [Skin.String($PARAM[CompPrefix].B3Typ,CLEARART) + IsEmpty(Container($PARAM[Id]).ListItem.Art(clearart))] | [Skin.String($PARAM[CompPrefix].B3Typ,CLEARLOGO) + IsEmpty(Container($PARAM[Id]).ListItem.Art(clearlogo))] | [Skin.String($PARAM[CompPrefix].B3Typ,LANDSCAPE) + IsEmpty(Container($PARAM[Id]).ListItem.Art(landscape))] | [Skin.String($PARAM[CompPrefix].B3Typ,DISCART) + IsEmpty(Container($PARAM[Id]).ListItem.Art(discart))] | IsEmpty(Skin.String($PARAM[CompPrefix].B3Typ))] + !StringCompare(Container(9000).ListItem.Property(widgetType),tvshows) + !StringCompare(Container(9000).ListItem.Property(widgetType),episodes)</visible>
+							<visible>[[Skin.String($PARAM[CompPrefix].B3Typ,THUMB) + IsEmpty(Container($PARAM[Id]).ListItem.Art(thumb))] | [Skin.String($PARAM[CompPrefix].B3Typ,FANART) + IsEmpty(Container($PARAM[Id]).ListItem.Art(fanart))] | [Skin.String($PARAM[CompPrefix].B3Typ,POSTER) + IsEmpty(Container($PARAM[Id]).ListItem.Art(poster)) + IsEmpty(Container($PARAM[Id]).ListItem.Art(tvshow.poster))] | [Skin.String($PARAM[CompPrefix].B3Typ,BANNER) + IsEmpty(Container($PARAM[Id]).ListItem.Art(banner))] | [Skin.String($PARAM[CompPrefix].B3Typ,CLEARART) + IsEmpty(Container($PARAM[Id]).ListItem.Art(clearart))] | [Skin.String($PARAM[CompPrefix].B3Typ,CLEARLOGO) + IsEmpty(Container($PARAM[Id]).ListItem.Art(clearlogo))] | [Skin.String($PARAM[CompPrefix].B3Typ,LANDSCAPE) + IsEmpty(Container($PARAM[Id]).ListItem.Art(landscape))] | [Skin.String($PARAM[CompPrefix].B3Typ,DISCART) + IsEmpty(Container($PARAM[Id]).ListItem.Art(discart))] | IsEmpty(Skin.String($PARAM[CompPrefix].B3Typ))] + !StringCompare(Container(9000).ListItem.Property(widgetType),tvshows) + !StringCompare(Container(9000).ListItem.Property(widgetType),episodes)</visible>
 						</control>
 						<control type="image">
 							<left>0</left>
@@ -163,7 +147,7 @@
 							<aligny>top</aligny>
 							<aspectratio>scale</aspectratio>
 							<texture background="true" colordiffuse="FFFFFFFF">$INFO[Container($PARAM[Id]).ListItem.Art(thumb)]</texture>
-							<visible>[[Skin.String($PARAM[CompPrefix].B3Typ,THUMB) + IsEmpty(Container($PARAM[Id]).ListItem.Art(thumb))] | [Skin.String($PARAM[CompPrefix].B3Typ,FANART) + IsEmpty(Container($PARAM[Id]).ListItem.Art(fanart))] | [Skin.String($PARAM[CompPrefix].B3Typ,POSTER) + IsEmpty(Container($PARAM[Id]).ListItem.Art(poster)) + IsEmpty(Container($PARAM[Id]).ListItem.Art(tvshow.poster))] | [Skin.String($PARAM[CompPrefix].B3Typ,CLEARART) + IsEmpty(Container($PARAM[Id]).ListItem.Art(clearart))] | [Skin.String($PARAM[CompPrefix].B3Typ,CLEARLOGO) + IsEmpty(Container($PARAM[Id]).ListItem.Art(clearlogo))] | [Skin.String($PARAM[CompPrefix].B3Typ,LANDSCAPE) + IsEmpty(Container($PARAM[Id]).ListItem.Art(landscape))] | [Skin.String($PARAM[CompPrefix].B3Typ,DISCART) + IsEmpty(Container($PARAM[Id]).ListItem.Art(discart))] | IsEmpty(Skin.String($PARAM[CompPrefix].B3Typ))] + [StringCompare(Container(9000).ListItem.Property(widgetType),tvshows) | StringCompare(Container(9000).ListItem.Property(widgetType),episodes) | StringCompare(Container(9000).ListItem.Property(widgetType),weather) | StringCompare(Container(9000).ListItem.Property(widgetType),unknown)]</visible>
+							<visible>[[Skin.String($PARAM[CompPrefix].B3Typ,THUMB) + IsEmpty(Container($PARAM[Id]).ListItem.Art(thumb))] | [Skin.String($PARAM[CompPrefix].B3Typ,FANART) + IsEmpty(Container($PARAM[Id]).ListItem.Art(fanart))] | [Skin.String($PARAM[CompPrefix].B3Typ,POSTER) + IsEmpty(Container($PARAM[Id]).ListItem.Art(poster)) + IsEmpty(Container($PARAM[Id]).ListItem.Art(tvshow.poster))] | [Skin.String($PARAM[CompPrefix].B3Typ,BANNER) + IsEmpty(Container($PARAM[Id]).ListItem.Art(banner))] | [Skin.String($PARAM[CompPrefix].B3Typ,CLEARART) + IsEmpty(Container($PARAM[Id]).ListItem.Art(clearart))] | [Skin.String($PARAM[CompPrefix].B3Typ,CLEARLOGO) + IsEmpty(Container($PARAM[Id]).ListItem.Art(clearlogo))] | [Skin.String($PARAM[CompPrefix].B3Typ,LANDSCAPE) + IsEmpty(Container($PARAM[Id]).ListItem.Art(landscape))] | [Skin.String($PARAM[CompPrefix].B3Typ,DISCART) + IsEmpty(Container($PARAM[Id]).ListItem.Art(discart))] | IsEmpty(Skin.String($PARAM[CompPrefix].B3Typ))] + [StringCompare(Container(9000).ListItem.Property(widgetType),tvshows) | StringCompare(Container(9000).ListItem.Property(widgetType),episodes) | StringCompare(Container(9000).ListItem.Property(widgetType),weather) | StringCompare(Container(9000).ListItem.Property(widgetType),unknown)]</visible>
 						</control>
 						<control type="image">
 							<left>0</left>
@@ -207,7 +191,17 @@
 							<align>left</align>
 							<aligny>top</aligny>
 							<aspectratio>keep</aspectratio>
+							<texture background="true" colordiffuse="FFFFFFFF">$INFO[Container($PARAM[Id]).ListItem.Art(banner)]</texture>
+							<visible>!StringCompare(Container(9000).ListItem.Property(widgetType),weather) + Skin.String($PARAM[CompPrefix].B3Typ,BANNER) + !IsEmpty(Container($PARAM[Id]).ListItem.Art(banner))</visible>
+						</control>
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<align>left</align>
+							<aligny>top</aligny>
+							<aspectratio>keep</aspectratio>
 							<texture background="true" colordiffuse="FFFFFFFF">$INFO[Container($PARAM[Id]).ListItem.Art(clearlogo)]</texture>
+							<animation effect="zoom" start="100" end="75" time="0" center="auto" condition="true">Conditional</animation>
 							<visible>!StringCompare(Container(9000).ListItem.Property(widgetType),weather) + Skin.String($PARAM[CompPrefix].B3Typ,CLEARLOGO) + !IsEmpty(Container($PARAM[Id]).ListItem.Art(clearlogo))</visible>
 						</control>
 						<control type="image">
@@ -236,6 +230,7 @@
 							<aspectratio>keep</aspectratio>
 							<texture background="true" colordiffuse="FFFFFFFF">$INFO[Container($PARAM[Id]).ListItem.Art(discart)]</texture>
 							<visible>!StringCompare(Container(9000).ListItem.Property(widgetType),weather) + Skin.String($PARAM[CompPrefix].B3Typ,DISCART) + !IsEmpty(Container($PARAM[Id]).ListItem.Art(discart))</visible>
+							<animation effect="zoom" start="100" end="85" time="0" center="auto" condition="true">Conditional</animation>
 							<animation effect="rotate" start="0" end="-360" loop="true" time="10000" center="auto" condition="ListItem.IsPlaying">Conditional</animation>
 						</control>				
 						<control type="group">
@@ -371,13 +366,8 @@
 				
 				<!-- Bloc 4 -->
 				<control type="group">
-					<visible>!Skin.String($PARAM[CompPrefix].B4Show,HIDDEN)</visible>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(5) + Skin.String(IdleFade,5) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B4Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(10) + Skin.String(IdleFade,10) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B4Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(15) + Skin.String(IdleFade,15) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B4Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(20) + Skin.String(IdleFade,20) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B4Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(25) + Skin.String(IdleFade,25) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B4Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(30) + Skin.String(IdleFade,30) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B4Show,IDLEFADE)">Conditonal</animation>
+					<visible>Skin.String($PARAM[CompPrefix].B4Show,VISIBLE) | Skin.String($PARAM[CompPrefix].B4Show,IDLEFADE) | [Skin.String($PARAM[CompPrefix].B4Show,ISPLAYING) + [Player.HasVideo | [Player.HasAudio + IsEmpty(Window(10025).Property(PlayingBackgroundMedia))]]]</visible>
+					<include condition="!Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B4Show,IDLEFADE)">IdleFadeTimer</include>
 					<animation effect="fade" start="100" end="0" time="200" condition="[Window.IsVisible(contextmenu) | Control.HasFocus(9001)] + Skin.String($PARAM[CompPrefix].B5B4ShowOF,HIDE)">Conditional</animation>
 					<include name="BlocPosition">
 						<param name="Prefix" value="$PARAM[CompPrefix]" />
@@ -416,7 +406,7 @@
 						<visible>!IsEmpty(Container($PARAM[Id]).ListItem.ChannelName) + !IsEmpty(Container($PARAM[Id]).ListItem.Title)</visible>
 					</control>
 					<control type="group">
-						<visible>Player.HasVideo + Skin.String($PARAM[CompPrefix].B4VDOTop,VISIBLE)</visible>
+						<visible>Player.HasVideo + [Skin.String($PARAM[CompPrefix].B4VDOTop,VISIBLE) | Skin.String($PARAM[CompPrefix].B4VDOTop,ISPLAYING)]</visible>
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
@@ -431,9 +421,10 @@
 							<left>0</left>
 							<top>0</top>
 							<texture colordiffuse="FF000000">common/white.png</texture>
+							<visible>IsEmpty(Window(10025).Property(PlayingBackgroundMedia))</visible>
 						</control>
 						<control type="visualisation">
-							<visible>!Skin.HasSetting(ArtistslideShow) | [System.HasAddon(script.artistslideshow) + Skin.HasSetting(VisualisationShow)]</visible>
+							<visible>!Skin.HasSetting(ArtistslideShow) | [System.HasAddon(script.artistslideshow) + Skin.HasSetting(VisualisationShow)] + IsEmpty(Window(10025).Property(PlayingBackgroundMedia))</visible>
 						</control>	
 						<control type="multiimage">
 							<imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
@@ -442,7 +433,7 @@
 							<fadetime>2000</fadetime>
 							<randomize>true</randomize>
 							<visible>System.HasAddon(script.artistslideshow) + Skin.HasSetting(ArtistslideShow)</visible>
-							<animation effect="fade" start="100" end="50" time="0" condition="Skin.HasSetting(VisualisationShow)">Conditional</animation>
+							<animation effect="fade" start="100" end="50" time="0" condition="Skin.HasSetting(VisualisationShow) + IsEmpty(Window(10025).Property(PlayingBackgroundMedia))">Conditional</animation>
 						</control>
 					</control>		
  					<control type="image"> 
@@ -476,12 +467,7 @@
 				<control type="group">
 					<visible>Control.IsVisible($PARAM[Id])</visible>
 					<animation effect="fade" start="100" end="0" time="0" condition="Skin.String($PARAM[CompPrefix].B1Show,HIDDEN)">Conditional</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(5) + Skin.String(IdleFade,5) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B1Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(10) + Skin.String(IdleFade,10) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B1Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(15) + Skin.String(IdleFade,15) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B1Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(20) + Skin.String(IdleFade,20) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B1Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(25) + Skin.String(IdleFade,25) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B1Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(30) + Skin.String(IdleFade,30) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B1Show,IDLEFADE)">Conditonal</animation>
+					<include condition="!Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B1Show,IDLEFADE)">IdleFadeTimer</include>
 					<animation effect="fade" start="100" end="0" time="200" condition="[Window.IsVisible(contextmenu) | Control.HasFocus(9001)] + Skin.String($PARAM[CompPrefix].B5B1ShowOF,HIDE)">Conditional</animation>
 					<include name="BlocPosition">
 						<param name="Prefix" value="$PARAM[CompPrefix]" />
@@ -549,6 +535,9 @@
 						<include condition="Skin.String($PARAM[CompPrefix].B1Typ,TILES)" name="ListTiles">
 							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
 						</include>
+						<include condition="Skin.String($PARAM[CompPrefix].B1Typ,SQUARE)" name="ListSquare">
+							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
+						</include>
 						<include condition="Skin.String($PARAM[CompPrefix].B1Typ,FANART)" name="ListFanart">
 							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
 						</include>
@@ -562,141 +551,28 @@
 							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
 						</include>
 
-						<include name="Custom1" condition="Skin.String($PARAM[CompPrefix].B1SizeX,1COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,1ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM1)">
-							<param name="width" value="636" />
-							<param name="height" value="356" />
+						<include name="CustomLists" condition="Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM1)">
+							<param name="CustomId" value="Custom1" />
 							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
 						</include>
-						<include name="Custom1" condition="Skin.String($PARAM[CompPrefix].B1SizeX,2COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,1ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM1)">
-							<param name="width" value="1272" />
-							<param name="height" value="356" />
+						<include name="CustomLists" condition="Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM2)">
+							<param name="CustomId" value="Custom2" />
 							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
 						</include>
-						<include name="Custom1" condition="Skin.String($PARAM[CompPrefix].B1SizeX,3COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,1ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM1)">
-							<param name="width" value="1908" />
-							<param name="height" value="356" />
+						<include name="CustomLists" condition="Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM3)">
+							<param name="CustomId" value="Custom3" />
 							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
 						</include>
-						<include name="Custom1" condition="Skin.String($PARAM[CompPrefix].B1SizeX,1COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,2ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM1)">
-							<param name="width" value="636" />
-							<param name="height" value="712" />
+						<include name="CustomLists" condition="Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM4)">
+							<param name="CustomId" value="Custom4" />
 							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
 						</include>
-						<include name="Custom1" condition="Skin.String($PARAM[CompPrefix].B1SizeX,2COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,2ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM1)">
-							<param name="width" value="1272" />
-							<param name="height" value="712" />
+						<include name="CustomLists" condition="Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM5)">
+							<param name="CustomId" value="Custom5" />
 							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
 						</include>
-						<include name="Custom1" condition="Skin.String($PARAM[CompPrefix].B1SizeX,3COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,2ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM1)">
-							<param name="width" value="1908" />
-							<param name="height" value="712" />
-							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
-						</include>
-						<include name="Custom1" condition="Skin.String($PARAM[CompPrefix].B1SizeX,1COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,3ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM1)">
-							<param name="width" value="636" />
-							<param name="height" value="1068" />
-							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
-						</include>
-						<include name="Custom1" condition="Skin.String($PARAM[CompPrefix].B1SizeX,2COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,3ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM1)">
-							<param name="width" value="1272" />
-							<param name="height" value="1068" />
-							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
-						</include>
-						<include name="Custom1" condition="Skin.String($PARAM[CompPrefix].B1SizeX,3COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,3ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM1)">
-							<param name="width" value="1908" />
-							<param name="height" value="1068" />
-							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
-						</include>
-
-						<include name="Custom2" condition="Skin.String($PARAM[CompPrefix].B1SizeX,1COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,1ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM2)">
-							<param name="width" value="636" />
-							<param name="height" value="356" />
-							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
-						</include>
-						<include name="Custom2" condition="Skin.String($PARAM[CompPrefix].B1SizeX,2COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,1ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM2)">
-							<param name="width" value="1272" />
-							<param name="height" value="356" />
-							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
-						</include>
-						<include name="Custom2" condition="Skin.String($PARAM[CompPrefix].B1SizeX,3COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,1ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM2)">
-							<param name="width" value="1908" />
-							<param name="height" value="356" />
-							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
-						</include>
-						<include name="Custom2" condition="Skin.String($PARAM[CompPrefix].B1SizeX,1COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,2ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM2)">
-							<param name="width" value="636" />
-							<param name="height" value="712" />
-							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
-						</include>
-						<include name="Custom2" condition="Skin.String($PARAM[CompPrefix].B1SizeX,2COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,2ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM2)">
-							<param name="width" value="1272" />
-							<param name="height" value="712" />
-							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
-						</include>
-						<include name="Custom2" condition="Skin.String($PARAM[CompPrefix].B1SizeX,3COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,2ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM2)">
-							<param name="width" value="1908" />
-							<param name="height" value="712" />
-							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
-						</include>
-						<include name="Custom2" condition="Skin.String($PARAM[CompPrefix].B1SizeX,1COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,3ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM2)">
-							<param name="width" value="636" />
-							<param name="height" value="1068" />
-							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
-						</include>
-						<include name="Custom2" condition="Skin.String($PARAM[CompPrefix].B1SizeX,2COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,3ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM2)">
-							<param name="width" value="1272" />
-							<param name="height" value="1068" />
-							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
-						</include>
-						<include name="Custom2" condition="Skin.String($PARAM[CompPrefix].B1SizeX,3COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,3ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM2)">
-							<param name="width" value="1908" />
-							<param name="height" value="1068" />
-							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
-						</include>
-
-						<include name="Custom3" condition="Skin.String($PARAM[CompPrefix].B1SizeX,1COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,1ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM3)">
-							<param name="width" value="636" />
-							<param name="height" value="356" />
-							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
-						</include>
-						<include name="Custom3" condition="Skin.String($PARAM[CompPrefix].B1SizeX,2COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,1ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM3)">
-							<param name="width" value="1272" />
-							<param name="height" value="356" />
-							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
-						</include>
-						<include name="Custom3" condition="Skin.String($PARAM[CompPrefix].B1SizeX,3COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,1ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM3)">
-							<param name="width" value="1908" />
-							<param name="height" value="356" />
-							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
-						</include>
-						<include name="Custom3" condition="Skin.String($PARAM[CompPrefix].B1SizeX,1COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,2ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM3)">
-							<param name="width" value="636" />
-							<param name="height" value="712" />
-							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
-						</include>
-						<include name="Custom3" condition="Skin.String($PARAM[CompPrefix].B1SizeX,2COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,2ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM3)">
-							<param name="width" value="1272" />
-							<param name="height" value="712" />
-							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
-						</include>
-						<include name="Custom3" condition="Skin.String($PARAM[CompPrefix].B1SizeX,3COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,2ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM3)">
-							<param name="width" value="1908" />
-							<param name="height" value="712" />
-							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
-						</include>
-						<include name="Custom3" condition="Skin.String($PARAM[CompPrefix].B1SizeX,1COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,3ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM3)">
-							<param name="width" value="636" />
-							<param name="height" value="1068" />
-							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
-						</include>
-						<include name="Custom3" condition="Skin.String($PARAM[CompPrefix].B1SizeX,2COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,3ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM3)">
-							<param name="width" value="1272" />
-							<param name="height" value="1068" />
-							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
-						</include>
-						<include name="Custom3" condition="Skin.String($PARAM[CompPrefix].B1SizeX,3COLUMN) + Skin.String($PARAM[CompPrefix].B1Sizey,3ROW) + Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM3)">
-							<param name="width" value="1908" />
-							<param name="height" value="1068" />
+						<include name="CustomLists" condition="Skin.String($PARAM[CompPrefix].B1Typ,CUSTOM6)">
+							<param name="CustomId" value="Custom6" />
 							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
 						</include>
 						
@@ -747,6 +623,9 @@
 							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
 						</include>
 						<include condition="Skin.String($PARAM[CompPrefix].B1Typ,TILES)" name="ListTiles">
+							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
+						</include>
+						<include condition="Skin.String($PARAM[CompPrefix].B1Typ,SQUARE)" name="ListSquare">
 							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
 						</include>
 						<include condition="Skin.String($PARAM[CompPrefix].B1Typ,FANART)" name="ListFanart">
@@ -854,12 +733,7 @@
 						<param name="Prefix" value="$PARAM[CompPrefix]" />
 						<param name="BlocID" value="B2" />
 					</include>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(5) + Skin.String(IdleFade,5) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B2Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(10) + Skin.String(IdleFade,10) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B2Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(15) + Skin.String(IdleFade,15) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B2Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(20) + Skin.String(IdleFade,20) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B2Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(25) + Skin.String(IdleFade,25) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B2Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(30) + Skin.String(IdleFade,30) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B2Show,IDLEFADE)">Conditonal</animation>
+					<include condition="!Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B2Show,IDLEFADE)">IdleFadeTimer</include>
 					<animation effect="fade" start="100" end="0" time="200" condition="[Window.IsVisible(contextmenu) | Control.HasFocus(9001)] + Skin.String($PARAM[CompPrefix].B5B2ShowOF,HIDE)">Conditional</animation>
 
 					<control type="image">
@@ -1215,12 +1089,7 @@
 				<control type="group"> 
 					<visible>Control.IsVisible(9001)</visible>
 					<animation effect="fade" start="100" end="0" time="0" condition="Skin.String($PARAM[CompPrefix].B5Show,HIDDEN)">Conditional</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(5) + Skin.String(IdleFade,5) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B5Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(10) + Skin.String(IdleFade,10) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B5Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(15) + Skin.String(IdleFade,15) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B5Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(20) + Skin.String(IdleFade,20) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B5Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(25) + Skin.String(IdleFade,25) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B5Show,IDLEFADE)">Conditonal</animation>
-					<animation effect="fade" start="100" end="0" time="400" reversible="false" condition="System.IdleTime(30) + Skin.String(IdleFade,30) + !Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B5Show,IDLEFADE)">Conditonal</animation>
+					<include condition="!Window.IsActive(10138) + Skin.String($PARAM[CompPrefix].B5Show,IDLEFADE)">IdleFadeTimer</include>
 					<animation effect="fade" start="100" end="0" time="200" condition="!Control.HasFocus(9001) + !Window.IsVisible(contextmenu) + Skin.String($PARAM[CompPrefix].B5Show,ONFOCUS)">Conditonal</animation>
 					<include name="BlocPosition">
 						<param name="Prefix" value="$PARAM[CompPrefix]" />
@@ -1288,6 +1157,9 @@
 							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
 						</include>
 						<include condition="Skin.String($PARAM[CompPrefix].B5Typ,TILES)" name="ListTiles">
+							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
+						</include>
+						<include condition="Skin.String($PARAM[CompPrefix].B5Typ,SQUARE)" name="ListSquare">
 							<param name="CompPrefix" value="$PARAM[CompPrefix]" />
 						</include>
 						<include condition="Skin.String($PARAM[CompPrefix].B5Typ,FANART)" name="ListFanart">

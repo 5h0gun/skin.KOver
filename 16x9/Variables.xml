@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-	<variable name="DesignerValueTranslator">
-		<value condition="StringCompare(Container(9300).ListItem.Label2,VISIBLE)">Visible</value>
-		<value condition="StringCompare(Container(9300).ListItem.Label2,IDLEFADE)">Idle Fade</value>
-		<value condition="StringCompare(Container(9300).ListItem.Label2,ISPLAYING)">Is Playing</value>
-		<value condition="StringCompare(Container(9300).ListItem.Label2,ONFOCUS)">On Focus</value>
-		<value condition="StringCompare(Container(9300).ListItem.Label2,HIDDEN)">Hidden</value>
-
-		<value condition="StringCompare(Container(9300).ListItem.Label2,DEFAULT)">Default</value>
-		<value condition="StringCompare(Container(9300).ListItem.Label2,WIDELIST)">Wide List</value>
-		<value condition="StringCompare(Container(9300).ListItem.Label2,TILES)">Tiles</value>
-		<value condition="StringCompare(Container(9300).ListItem.Label2,FANART)">Fanart</value>
-		<value condition="StringCompare(Container(9300).ListItem.Label2,CARD)">Card</value>
-		<value condition="StringCompare(Container(9300).ListItem.Label2,POSTER)">Poster</value>
-	</variable>
 
 	<variable name="BlocEditorTitle">
 		<value condition="Control.HasFocus(9600)">$LOCALIZE[31237]</value>
@@ -95,6 +81,9 @@
 		<value condition="Control.HasFocus(9401)">$LOCALIZE[31201]</value>
 		<value condition="Control.HasFocus(9402)">$LOCALIZE[31202]</value>
 		<value condition="Control.HasFocus(9403)">$LOCALIZE[31203]</value>
+		<value condition="Control.HasFocus(9404)">$LOCALIZE[31246]</value>
+		<value condition="Control.HasFocus(9405)">$LOCALIZE[31247]</value>
+		<value condition="Control.HasFocus(9406)">$LOCALIZE[31250]</value>
 	</variable>
 
 	<variable name="ShortcutValue">
@@ -377,6 +366,7 @@
 
 	<variable name="ThumbPortrait">
 		<value condition="!IsEmpty(ListItem.ChannelName) + !IsEmpty(ListItem.Title)">http://localhost:52307/getpvrthumb&amp;title=$INFO[ListItem.Title]&amp;channel=$INFO[ListItem.ChannelName]&amp;type=poster,fanart,thumb</value>
+		<value condition="!IsEmpty(ListItem.Art(poster)) + IsEmpty(ListItem.ChannelName)">$INFO[ListItem.Art(poster)]</value>
 		<value condition="!SubString(ListItem.Art(thumb),Default) + IsEmpty(ListItem.ChannelName) + !IsEmpty(Container.Content)">$INFO[ListItem.Art(thumb)]</value>
 		<value condition="SubString(ListItem.Label,jpg) | SubString(ListItem.Label,png) | SubString(ListItem.Label,gif) | SubString(ListItem.Label,bmp)">$INFO[ListItem.Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem.Property(LongDay))">$INFO[ListItem.Art(thumb)]</value>

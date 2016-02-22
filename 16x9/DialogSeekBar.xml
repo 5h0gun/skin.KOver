@@ -3,11 +3,7 @@
 	<!-- seekbar -->
 	<defaultcontrol always="true">901</defaultcontrol>
 	<visible>[VideoPlayer.IsFullscreen | Window.IsVisible(visualisation)] + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Window.IsVisible(videoosd) | Window.IsVisible(musicosd) | Window.IsVisible(fullscreeninfo) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(numericinput) | Window.IsVisible(pvrosdchannels) | Window.IsVisible(pvrosdguide)]</visible>
-	<onload>SetProperty(SidebarPos,$INFO[Skin.String(HOM.View1.BBSidebar)],Home)</onload>
-	<onload>SetProperty(DialogPos,$INFO[Skin.String(HOM.View1.DIAPanel)],Home)</onload>	
 	<onload>SetProperty(CompPrefix,HOM.View1,Home)</onload>	
-	<onunload>SetProperty(SidebarPos,$INFO[Skin.String(HOM.View1.BBSidebar)],Home)</onunload>
-	<onunload>SetProperty(DialogPos,$INFO[Skin.String(HOM.View1.DIAPanel)],Home)</onunload>	
 	<onunload>SetProperty(CompPrefix,HOM.View1,Home)</onunload>	
 	
 	<controls>
@@ -62,13 +58,25 @@
 						<textcolor>$INFO[Skin.String(Color.B1Txt1NF)]</textcolor>
 						<label>$INFO[Player.Time] / $INFO[Player.Duration]</label>
 					</control>
+					<control type="progress">
+						<left>142</left>
+						<top>80</top>
+						<width>458</width>
+						<height>10</height>
+						<info>Player.ProgressCache</info>
+						<texturebg colordiffuse="$INFO[Skin.String(Color.B1Txt2NF)]">common/white.png</texturebg>
+						<lefttexture>-</lefttexture>
+						<midtexture colordiffuse="$INFO[Skin.String(Color.B1Txt1NF)]">common/white.png</midtexture>
+						<righttexture>-</righttexture>
+						<overlaytexture>-</overlaytexture>
+					</control>		
 					<control type="progress" id="1">
 						<left>142</left>
 						<top>80</top>
 						<width>458</width>
 						<height>10</height>
 						<info>Player.Progress</info>
-						<texturebg colordiffuse="$INFO[Skin.String(Color.B1Txt2NF)]">common/white.png</texturebg>
+						<texturebg colordiffuse="00ffffff">common/white.png</texturebg>
 						<lefttexture>-</lefttexture>
 						<midtexture colordiffuse="$VAR[CategoryColor]">common/white.png</midtexture>
 						<righttexture>-</righttexture>
@@ -78,9 +86,12 @@
 			</control>
 
 			<!-- Dialogs Background -->
-			<include name="DialogBgDef">
+			<include name="DialogBgDef" condition="!Skin.HasSetting(ForceOSDBottom)">
 				<param name="CompPrefix" value="HOM.View1" />
-			</include>					
+			</include>
+			<include name="DialogBgDef" condition="Skin.HasSetting(ForceOSDBottom)">
+				<param name="CompPrefix" value="DIA.View1" />
+			</include>			
 			
 			<!-- Sidebar Position-->	
 			<control type="group">	
